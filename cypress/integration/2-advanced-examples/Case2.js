@@ -9,6 +9,7 @@ describe('Bookstore_case',function(){
         Cypress.on('uncaught:exception', (err, runnable) => {
             // returning false here prevents Cypress from
             // failing the test
+            //test
             return false
           })
 
