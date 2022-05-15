@@ -15,15 +15,29 @@ describe('Bookstore_case',function(){
         cy.get('#userName').type('sonal1')
         cy.get('#password').type('Sonal@1234')
         cy.get('#login').click()
-        cy.log(cy.title())
+        cy.get('div[class="main-header"]').should('have.text','Profile')
+        
         cy.get('#gotoStore').click()
 
         cy.get('div span[id="see-book-Git Pocket Guide"]').click()
         
        cy.get('div[class="text-right fullButton"]').find('button[id="addNewRecordButton"]').click({force: true})
-       cy.on('window:alert',(str)=>{
+       cy.on('window:alert',(str1)=>{
 
-        expect(str).to.equal('Book added to your collection.')
+        expect(str1).to.equal('Book added to your collection.')
+       })
+
+       cy.contains('Profile').click()
+       cy.get('div[class="text-right button di"]').find('button[id="submit"]').click({force: true})
+       cy.get('button[id="closeSmallModal-ok"]').click({force: true})
+    //    cy.on('window:confirm',(txt)=>{
+        
+    //     expect(txt).to.contains('Do you want to delete all books?');
+    //  })
+       cy.wait(2000)
+       cy.on('window:alert',(str2)=>{
+
+        expect(str2).to.equal('All Books deleted.')
        })
 
 
