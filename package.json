@@ -11,7 +11,11 @@
   "dependencies": {
     "cypress": "^9.5.3"
   },
+  "cypress-cucumber-preprocessor":{
+    "nonGlobalStepDefinitions": true
+  },
   "devDependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8"
   }
 }
